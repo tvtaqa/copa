@@ -32,7 +32,7 @@ PS：
 
 
 def decide(load_txt, rps_txt, limit_txt, arg):
-    # execute(1, 1950)
+    execute(1, 1950)
     cur_cpu_res, cur_mem_res, cur_num, cur_ws, cur_pro, cur_rps_for_each, cur_sla_cost, cur_res_cost = 1950, 0, 1, 0, 0, 70.1, 0, 0
     loadcount = 0
     while True:
@@ -69,7 +69,7 @@ def decide(load_txt, rps_txt, limit_txt, arg):
                 opt_cpu_res, opt_num, opt_ws, opt_pro, opt_rps, opt_res_cost, opt_sla_cost
             ischange = true
             # 执行伸缩方案
-            # execute(cur_num, cur_cpu_res)
+            execute(cur_num, cur_cpu_res)
 
         outputre(ischange, load, loadcount, cur_num, cur_cpu_res, cur_rps_for_each, cur_ws, cur_pro, cur_res_cost,
                  cur_sla_cost)
