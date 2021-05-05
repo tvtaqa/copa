@@ -1,5 +1,14 @@
 #!/bin/bash
-ip="http://192.168.155.65:80"
+
+read -t 60 -p "Enter the interval > " interval
+echo "interval: $interval"
+echo -e "\n"
+
+read -t 60 -p "Enter the type of workload > " workload
+echo "workload: $workload"
+echo -e "\n"
+
+# ip="http://192.168.155.65:80"
 logfile="rise.txt"
 query=( 2.24  2.65  3.16  2.83  3.46  3.87  4.24  4.00  
   4.36  4.69  5.00  5.20  4.90  5.39  5.66  6.24  5.20  

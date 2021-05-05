@@ -15,7 +15,7 @@ def decide():
 
 
 def execute(num_pod, limit_pod):
-    config.load_kube_config()
+    config.load_incluster_config()
     api_instance = client.AppsV1Api()
     deployobj = api_instance.read_namespaced_deployment(deployment, namespace)
 

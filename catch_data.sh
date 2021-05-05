@@ -20,6 +20,8 @@ echo "cycle: $cy"
 echo -e "\n"
 
 
+
+
 logfile="log.txt"
 
 query=10000

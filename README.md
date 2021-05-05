@@ -27,3 +27,8 @@ kubectl run -i --tty copa-pod-beta --image=registry.cn-shanghai.aliyuncs.com/tvt
 
 
 
+
+
+
+
+

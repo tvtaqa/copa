@@ -13,7 +13,7 @@ metadata:
   name: php-apache-hy
   namespace: hy
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       run: php-apache-hy
@@ -24,7 +24,6 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      creationTimestamp: null
       labels:
         run: php-apache-hy
     spec:
