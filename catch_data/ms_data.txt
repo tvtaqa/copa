@@ -1,0 +1,177 @@
+hey -q 10000 -z 20s http://10.107.142.125:80
+cpu_rescource: 100m - cycle:2
+2021-05-05 21:39:58
+
+Summary:
+  Total:	20.0140 secs
+  Slowest:	0.0000 secs
+  Fastest:	0.0000 secs
+  Average:	 NaN secs
+  Requests/sec:	2.4982
+  
+
+Response time histogram:
+
+
+Latency distribution:
+
+Details (average, fastest, slowest):
+  DNS+dialup:	 NaN secs, 0.0000 secs, 0.0000 secs
+  DNS-lookup:	 NaN secs, 0.0000 secs, 0.0000 secs
+  req write:	 NaN secs, 0.0000 secs, 0.0000 secs
+  resp wait:	 NaN secs, 0.0000 secs, 0.0000 secs
+  resp read:	 NaN secs, 0.0000 secs, 0.0000 secs
+
+Status code distribution:
+
+Error distribution:
+  [50]	Get http://10.107.142.125:80: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+-------------------------------------------------------------
+hey -q 10000 -z 20s http://10.107.142.125:80
+cpu_rescource: 100m - cycle:2
+2021-05-05 21:40:21
+
+Summary:
+  Total:	20.0110 secs
+  Slowest:	0.0000 secs
+  Fastest:	0.0000 secs
+  Average:	 NaN secs
+  Requests/sec:	2.4986
+  
+
+Response time histogram:
+
+
+Latency distribution:
+
+Details (average, fastest, slowest):
+  DNS+dialup:	 NaN secs, 0.0000 secs, 0.0000 secs
+  DNS-lookup:	 NaN secs, 0.0000 secs, 0.0000 secs
+  req write:	 NaN secs, 0.0000 secs, 0.0000 secs
+  resp wait:	 NaN secs, 0.0000 secs, 0.0000 secs
+  resp read:	 NaN secs, 0.0000 secs, 0.0000 secs
+
+Status code distribution:
+
+Error distribution:
+  [50]	Get http://10.107.142.125:80: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+-------------------------------------------------------------
+hey -q 10000 -z 20s http://10.107.142.125:80
+cpu_rescource: 150m - cycle:2
+2021-05-05 21:41:44
+
+Summary:
+  Total:	20.0071 secs
+  Slowest:	0.0000 secs
+  Fastest:	0.0000 secs
+  Average:	 NaN secs
+  Requests/sec:	2.4991
+  
+
+Response time histogram:
+
+
+Latency distribution:
+
+Details (average, fastest, slowest):
+  DNS+dialup:	 NaN secs, 0.0000 secs, 0.0000 secs
+  DNS-lookup:	 NaN secs, 0.0000 secs, 0.0000 secs
+  req write:	 NaN secs, 0.0000 secs, 0.0000 secs
+  resp wait:	 NaN secs, 0.0000 secs, 0.0000 secs
+  resp read:	 NaN secs, 0.0000 secs, 0.0000 secs
+
+Status code distribution:
+
+Error distribution:
+  [50]	Get http://10.107.142.125:80: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+-------------------------------------------------------------
+hey -q 10000 -z 20s http://10.107.142.125:80
+cpu_rescource: 150m - cycle:2
+2021-05-05 21:42:07
+
+Summary:
+  Total:	20.0072 secs
+  Slowest:	0.0000 secs
+  Fastest:	0.0000 secs
+  Average:	 NaN secs
+  Requests/sec:	2.4991
+  
+
+Response time histogram:
+
+
+Latency distribution:
+
+Details (average, fastest, slowest):
+  DNS+dialup:	 NaN secs, 0.0000 secs, 0.0000 secs
+  DNS-lookup:	 NaN secs, 0.0000 secs, 0.0000 secs
+  req write:	 NaN secs, 0.0000 secs, 0.0000 secs
+  resp wait:	 NaN secs, 0.0000 secs, 0.0000 secs
+  resp read:	 NaN secs, 0.0000 secs, 0.0000 secs
+
+Status code distribution:
+
+Error distribution:
+  [50]	Get http://10.107.142.125:80: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+-------------------------------------------------------------
+hey -q 10000 -z 20s http://10.107.142.125:80
+cpu_rescource: 200m - cycle:2
+2021-05-05 21:43:31
+
+Summary:
+  Total:	20.0086 secs
+  Slowest:	0.0000 secs
+  Fastest:	0.0000 secs
+  Average:	 NaN secs
+  Requests/sec:	2.4989
+  
+
+Response time histogram:
+
+
+Latency distribution:
+
+Details (average, fastest, slowest):
+  DNS+dialup:	 NaN secs, 0.0000 secs, 0.0000 secs
+  DNS-lookup:	 NaN secs, 0.0000 secs, 0.0000 secs
+  req write:	 NaN secs, 0.0000 secs, 0.0000 secs
+  resp wait:	 NaN secs, 0.0000 secs, 0.0000 secs
+  resp read:	 NaN secs, 0.0000 secs, 0.0000 secs
+
+Status code distribution:
+
+Error distribution:
+  [50]	Get http://10.107.142.125:80: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+-------------------------------------------------------------
+hey -q 10000 -z 20s http://10.107.142.125:80
+cpu_rescource: 200m - cycle:2
+2021-05-05 21:43:54
+
+Summary:
+  Total:	20.0072 secs
+  Slowest:	0.0000 secs
+  Fastest:	0.0000 secs
+  Average:	 NaN secs
+  Requests/sec:	2.4991
+  
+
+Response time histogram:
+
+
+Latency distribution:
+
+Details (average, fastest, slowest):
+  DNS+dialup:	 NaN secs, 0.0000 secs, 0.0000 secs
+  DNS-lookup:	 NaN secs, 0.0000 secs, 0.0000 secs
+  req write:	 NaN secs, 0.0000 secs, 0.0000 secs
+  resp wait:	 NaN secs, 0.0000 secs, 0.0000 secs
+  resp read:	 NaN secs, 0.0000 secs, 0.0000 secs
+
+Status code distribution:
+
+Error distribution:
+  [50]	Get http://10.107.142.125:80: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+-------------------------------------------------------------
+hey -q 10000 -z 20s http://10.107.142.125:80
+cpu_rescource: 250m - cycle:2
+2021-05-05 21:45:17
