@@ -45,14 +45,14 @@ query=10000
 
 while [[ $floor -le $upper ]]
 do 
-      kubectl  set resources deployment $deploy  -n $ns --limits=cpu=${floor}m --requests=cpu=${floor}m
+      python3 vpa.py ${floor}
       sleep 60
       cycle=0
       while [[ $cycle -lt $cy ]]
       do
          command="hey -q $query -z 20s ${ip}"
          echo "$command" >> ${logfile}
-         echo "cpu_rescource: ${floor}m - cycle:${cy}" >> ${logfile}
+         echo "cpu_rescource: ${floor}" >> ${logfile}
          echo $(date +"%Y-%m-%d %H:%M:%S") >> ${logfile}
          echo "`$command`" >> ${logfile}
          echo "-------------------------------------------------------------" >> ${logfile}
@@ -61,3 +61,11 @@ do
       done
       let floor=floor+increment
 done
+
+# 处理数据
+dealed_file="dealed_log.txt"
+echo "`cat $logfile | grep -e cpu_rescource: -e Requests | sed 's/Requests\/sec:/''/g'`"  > $dealed_file
+echo "`sed 's/cpu_rescource:/''/g' $dealed_file`" > $dealed_file
+echo "`sed 's/[ \t]+/''/g' $dealed_file`" > $dealed_file
+
+
