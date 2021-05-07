@@ -11,17 +11,17 @@
 
 
 # to be written
-ip="http://xxx:xx"
-ns="xxx"
-deploy="xxx"
-floor=xxx
-upper=xxx
-increment=xxx
-cy=xxx
+ip="http://10.101.196.176:8080"
+ns="service-scalling"
+deploy="tableservice"
+floor=500
+upper=4000
+increment=100
+cy=3
 
 
 logfile="ms_data.txt"
-query=10000
+query=1000000
 
 # read -t 60 -p "Enter the ip:port of the service > " ip
 # echo "service_ip: $ip"
@@ -50,7 +50,10 @@ do
       cycle=0
       while [[ $cycle -lt $cy ]]
       do
-         command="hey -q $query -z 20s ${ip}"
+         #hey -c 500  -z 2s -D timeservice.txt -m POST http://127.0.0.1:8080/execute
+         #command="hey -q $query -z 20s ${ip}"
+         
+         command="hey -q $query -z 20s -D ../request_body/timeservice.txt -m POST ${ip}/execute"
          echo "$command" >> ${logfile}
          echo "cpu_rescource: ${floor}" >> ${logfile}
          echo $(date +"%Y-%m-%d %H:%M:%S") >> ${logfile}
@@ -62,6 +65,7 @@ do
       let floor=floor+increment
 done
 
+echo "catch data end... now dealing the data" >> ${logfile}
 # 处理数据
 dealed_file="dealed_log.txt"
 echo "`cat $logfile | grep -e cpu_rescource: -e Requests | sed 's/Requests\/sec:/''/g'`"  > $dealed_file

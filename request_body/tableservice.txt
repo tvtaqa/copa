@@ -1,0 +1,42 @@
+{
+    "inputData": {
+        "repeattime":"10",
+        "parts": [
+            {
+                "ItemName": "Wheel",
+                "ItemId": "",
+                "ItemAmount": "40",
+                "ItemRequireAmount": "30"
+            },
+            {
+                "ItemName": "Steel",
+                "ItemId": "",
+                "ItemAmount": "100",
+                "ItemRequireAmount": "70"
+            },
+            {
+                "ItemName": "Engine",
+                "ItemId": "",
+                "ItemAmount": "10",
+                "ItemRequireAmount": "1"
+            },
+            {
+                "ItemName": "Seat",
+                "ItemId": "",
+                "ItemAmount": "40",
+                "ItemRequireAmount": "20"
+            },
+            {
+                "ItemName": "Window",
+                "ItemId": "",
+                "ItemAmount": "60",
+                "ItemRequireAmount": "56"
+            }
+        ]
+    },
+    "callbackAfterSeconds": 0,
+    "responseTime": 3.4359,
+    "workflowInstanceId": "",
+    "taskId": "",
+    "status": "COMPLETED"
+}

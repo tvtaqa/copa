@@ -1,0 +1,12 @@
+{
+    "inputData": {
+        "repeattime":"1",
+        "productId":"1",
+        "amount":100
+    },
+    "callbackAfterSeconds": 0,
+    "responseTime": 3.4359,
+    "workflowInstanceId": "",
+    "taskId": "",
+    "status": "COMPLETED"
+}

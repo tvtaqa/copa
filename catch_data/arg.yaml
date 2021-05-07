@@ -1,2 +1,2 @@
-'namespace': 'hy'
-'deployment': 'php-apache-hy'
+'namespace': 'service-scalling'
+'deployment': 'tableservice'

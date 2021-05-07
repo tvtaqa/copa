@@ -12,6 +12,7 @@ user_rtt, p_cpu, interval, pod_max_limit, pod_min_limit, pod_num_max = 0, 0, 0, 
 ms, mu, t1, redundancy, thresold = 0, 0, 0, 0, 0
 error_ratio = 0
 deployment, namespace = '', ''
+workload = ''
 
 # 数据预处理，资源成本的max-min值以及违约成本的max-min值
 res_cost_max, res_cost_min, sla_cost_max, sla_cost_min = 0, 0, 0, 0
@@ -307,7 +308,14 @@ def prepare():
     load_txt = []
     rps_txt = []
     limit_txt = []
-    file = 'load.txt'
+    if workload == 'rise':
+        file = '../workload/rise.txt'
+    elif workload == 'burst':
+        file = '../workload/burst.txt'
+    elif workload == 'gentle':
+        file = '../workload/gentle.txt'
+    else:
+        file = '../workload/decline.txt'
     with open(file, 'r') as file_to_read:
         while True:
             lines = file_to_read.readline()
@@ -341,6 +349,7 @@ def set_arg(arg):
     global ms, mu, t1, redundancy, thresold
     global deployment, namespace
     global error_ratio
+    global workload 
 
     user_rtt = arg['rtt']
     interval = arg['interval']
@@ -362,13 +371,14 @@ def set_arg(arg):
 
     deployment = arg['deployment']
     namespace = arg['namespace']
+    workload = arg['workload']
 
 
 def main():
     with open(_YAML_FILE_NAME) as f:
         arg = yaml.load(f, Loader=yaml.FullLoader)
-    load_txt, rps_txt, limit_txt = prepare()
     set_arg(arg)
+    load_txt, rps_txt, limit_txt = prepare()
 
     decide(load_txt, rps_txt, limit_txt, arg)
     f = open('hybrid_log.txt', 'a')
