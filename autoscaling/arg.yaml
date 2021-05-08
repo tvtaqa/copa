@@ -28,9 +28,9 @@
 'namespace': 'service-scalling'
 'deployment': 'tableservice'
 'per_pod_start_time': 1
-'thresold': 0.1  #推荐方案和当前方案 决策
+'thresold': 0.02  #推荐方案和当前方案 决策
 
 'p_service': 0.3
 'start_time_constraint': 0.1
-'workload': 'rise'
+# 'workload': 'rise'
 

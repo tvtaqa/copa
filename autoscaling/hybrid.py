@@ -1,9 +1,11 @@
 import math
 import random
+import decimal
 import time
 from kubernetes import client, config
 from sympy import *
 import yaml
+import sys
 
 _YAML_FILE_NAME = 'arg.yaml'
 
@@ -34,7 +36,7 @@ PS：
 
 def decide(load_txt, rps_txt, limit_txt, arg):
     execute(1, 2000)
-    cur_cpu_res, cur_mem_res, cur_num, cur_ws, cur_pro, cur_rps_for_each, cur_sla_cost, cur_res_cost = 1950, 0, 1, 0, 0, 70.1, 0, 0
+    cur_cpu_res, cur_mem_res, cur_num, cur_ws, cur_pro, cur_rps_for_each, cur_sla_cost, cur_res_cost = 2000, 0, 1, 0, 0, 7322, 0, 0
     loadcount = 0
     while True:
         ischange = false
@@ -246,6 +248,7 @@ def execute(num_pod, limit_pod):
 
 
 def getRTT(load, rps, rtt, c, redu):
+    decimal.getcontext().prec = 100
     load = load * redu
     strength = 1.0 * load / (c * rps)
     if strength >= 1:
@@ -264,8 +267,8 @@ def getRTT(load, rps, rtt, c, redu):
     wq = lq / load
 
     pi_n = ((c * strength) ** c) / math.factorial(c) * p0
-    tmp = (math.e ** ((rtt - 1 / rps) * c * rps * (1 - strength))) * (1 - strength)
-    probaility = (100 * tmp - 100 * pi_n) / tmp
+    tmp = (decimal.Decimal(math.e) ** ((decimal.Decimal(rtt) - decimal.Decimal(1) / decimal.Decimal(rps)) * decimal.Decimal(c) * decimal.Decimal(rps) * (decimal.Decimal(1) - decimal.Decimal(strength)))) * (decimal.Decimal(1) - decimal.Decimal(strength))
+    probaility = (decimal.Decimal(100) * decimal.Decimal(tmp) - decimal.Decimal(100) * decimal.Decimal(pi_n)) / decimal.Decimal(tmp)
 
     return float(ws), probaility
 
@@ -371,7 +374,7 @@ def set_arg(arg):
 
     deployment = arg['deployment']
     namespace = arg['namespace']
-    workload = arg['workload']
+    workload = sys.argv[1]
 
 
 def main():
