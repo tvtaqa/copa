@@ -20,7 +20,7 @@ increment=100
 cy=3
 
 
-logfile="ms_data.txt"
+logfile="catch_log.txt"
 query=1000000
 
 # read -t 60 -p "Enter the ip:port of the service > " ip
@@ -71,5 +71,9 @@ dealed_file="dealed_log.txt"
 echo "`cat $logfile | grep -e cpu_rescource: -e Requests | sed 's/Requests\/sec:/''/g'`"  > $dealed_file
 echo "`sed 's/cpu_rescource:/''/g' $dealed_file`" > $dealed_file
 echo "`sed 's/[ \t]+/''/g' $dealed_file`" > $dealed_file
+
+
+echo "Now getting the average data" >> ${logfile}
+python3 deal.py
 
 

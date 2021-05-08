@@ -1,24 +1,26 @@
 #!/bin/bash
 
-read -t 60 -p "Enter the interval > " interval
-echo "interval: $interval"
-echo -e "\n"
+# read -t 60 -p "Enter the interval > " interval
+# echo "interval: $interval"
+# echo -e "\n"
 
-read -t 60 -p "Enter the type of workload > " workload
-echo "workload: $workload"
-echo -e "\n"
+# read -t 60 -p "Enter the type of workload > " workload
+# echo "workload: $workload"
+# echo -e "\n"
 
-# ip="http://192.168.155.65:80"
-logfile="rise.txt"
-query=( 2.24  2.65  3.16  2.83  3.46  3.87  4.24  4.00  
-  4.36  4.69  5.00  5.20  4.90  5.39  5.66  6.24  5.20  
-  4.47  4.58  6.00  6.32  6.48  7.00  6.71  6.93  7.14  
-  7.94  7.48  7.81  7.94  7.87  8.43  8.31  8.54  8.83  
-  8.94  9.17  8.94  8.77  9.22  9.54  9.80  10.15   9.43  9.33  9.27  9.38  9.49   )
-con=( 2   3   3   3   3   4   4   4   4   5   5   5   5
-      5   6   6   5   4   5   6   6   6   7   7   7   7
-      8   7   8   8   8   8   8   9   9   9   9   9   9   
-      9   10  10  10  9   9   9   9   9    )
+ip="http://10.101.196.176:8080"
+
+
+logfile="$1.txt"
+rise_query=( 1000  1400  2000  1600  2400  3000
+        3600  3200  3800  4400  5000  5400  
+        4800  5800  6400  7800  5400  4000  
+        4200  7200  8000  8400  9800  9000  
+        9600  10200 12600 11200 12200 12600 
+        12400 14200 13800 14600 15600 16000 
+        16800 16000 15400 17000 18200 19200 
+        20600 17800 17400 17200 17600 18000)
+
 count=0
 #kubectl delete hpa php-apache -n test
 #kubectl autoscale deployment php-apache -n test --cpu-percent=80 --min=1 --max=10
@@ -26,7 +28,12 @@ count=0
 #kubectl set resources deployment php-apache -n test  --limits=cpu=675m --requests=cpu=675m
 while [ $count -lt 48 ]
 do
-      command="hey -q ${query[$count]} -c ${con[$count]}  -z 150s    ${ip}"
+      if [[ "$1" = "rise" ]];then
+        command="hey -q ${rise_query[$count]} -c 1 -z 60s -D ../request_body/timeservice.txt -m POST ${ip}/execute"
+      elif [[ "$1" = "gentle" ]]; then
+        command="hey -q ${rise_query[$count]} -c 1 -z 60s -D ../request_body/timeservice.txt -m POST ${ip}/execute"
+      else
+        command="hey -q ${rise_query[$count]} -c 1 -z 60s -D ../request_body/timeservice.txt -m POST ${ip}/execute"
       echo "$command" >> $logfile
       echo $(date +"%Y-%m-%d %H:%M:%S") >> $logfile
       echo "`$command`" >> $logfile
