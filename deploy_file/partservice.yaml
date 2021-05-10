@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: service-scalling
+  name: partservice
+spec:
+  selector:
+    matchLabels:
+      app: partservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: partservice
+    spec:
+      nodeName: vm-8c16g-node11
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: partservice
+        image: vm-2c4g-registry:5000/partservice:v0.0.1-scalling
+        ports:
+        - containerPort: 8080
+        command: ["/bin/bash"]
+        args: ["-c","cd /go/src; service mysql restart; mysql -u root < Init.sql;go run main.go"]
+        resources:
+          requests:
+            cpu: 500m
+            memory: 500Mi
+          limits:
+            cpu: 1000m
+            memory: 1000Mi
+        readinessProbe:
+          httpGet:
+            path: /qos
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /qos
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: service-scalling
+  name: partservice
+spec:
+  type: ClusterIP
+  selector:
+    app: partservice
+  ports:
+  - name: partservice-port
+    port: 8080
+    targetPort: 8080
+

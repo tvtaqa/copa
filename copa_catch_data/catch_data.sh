@@ -15,7 +15,7 @@ ip="http://10.101.196.176:8080"
 ns="service-scalling"
 deploy="tableservice"
 floor=500
-upper=4000
+upper=3000
 increment=100
 cy=3
 
@@ -53,7 +53,7 @@ do
          #hey -c 500  -z 2s -D timeservice.txt -m POST http://127.0.0.1:8080/execute
          #command="hey -q $query -z 20s ${ip}"
          
-         command="hey -q $query -z 20s -D ../request_body/timeservice.txt -m POST ${ip}/execute"
+         command="hey -q $query -z 20s -D ../request_body/tableservice.txt -m POST ${ip}/execute"
          echo "$command" >> ${logfile}
          echo "cpu_rescource: ${floor}" >> ${logfile}
          echo $(date +"%Y-%m-%d %H:%M:%S") >> ${logfile}

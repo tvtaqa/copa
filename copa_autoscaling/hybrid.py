@@ -35,8 +35,8 @@ PS：
 
 
 def decide(load_txt, rps_txt, limit_txt, arg):
-    execute(1, 2000)
-    cur_cpu_res, cur_mem_res, cur_num, cur_ws, cur_pro, cur_rps_for_each, cur_sla_cost, cur_res_cost = 2000, 0, 1, 0, 0, 7322, 0, 0
+    execute(1, 1500)
+    cur_cpu_res, cur_mem_res, cur_num, cur_ws, cur_pro, cur_rps_for_each, cur_sla_cost, cur_res_cost = 1500, 0, 1, 0, 0, 3982, 0, 0
     loadcount = 0
     while True:
         ischange = false

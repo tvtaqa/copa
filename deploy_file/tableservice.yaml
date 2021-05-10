@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: service-scalling
+  name: tableservice
+spec:
+  selector:
+    matchLabels:
+      app: tableservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tableservice
+    spec:
+      nodeName: vm-8c16g-node11
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: tableservice
+        image: vm-2c4g-registry:5000/tableservice:v0.0.1-scalling
+        ports:
+        - containerPort: 8080
+        command: ["/bin/bash"]
+        args: ["-c","cd /go/src;go run main.go"]
+        resources:
+          requests:
+            cpu: 500m
+            memory: 500Mi
+          limits:
+            cpu: 1000m
+            memory: 1000Mi
+        readinessProbe:
+          httpGet:
+            path: /qos
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /qos
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: service-scalling
+  name: tableservice
+spec:
+  type: ClusterIP
+  selector:
+    app: tableservice
+  ports:
+  - name: tableservice-port
+    port: 8080
+    targetPort: 8080
+
