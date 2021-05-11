@@ -1,3 +1,14 @@
+# 功能概述：
+# 调用python的kubernetes client库，实现简单的垂直伸缩
+# 在pod内部和api-server交互，修改目标deployment的资源量 
+
+
+# Input:
+# arg.yaml,外部传入的<期望的资源量>
+
+# Output:
+# 无
+
 import sys
 from kubernetes import client, config
 import yaml

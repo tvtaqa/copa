@@ -1,9 +1,20 @@
-# This is a sample Python script.
+# 功能概述：
+# <res_1,tps_1>
+# <res_1,tps_2>
+# <res_1,tps_3>
+# <res_2,tps_1>
+# <res_2,tps_2>
+# <res_2,tps_3>
+# ...
+# 对相同res的tps求平均值
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+# Input:
+# dealed_log.txt
 
-# Press the green button in the gutter to run the script.
+# Output:
+# ms_data.txt
+
+
 if __name__ == '__main__':
     resList = []
     tpsList = []
